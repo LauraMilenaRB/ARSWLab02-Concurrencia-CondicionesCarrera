@@ -1,0 +1,22 @@
+
+Leonardo Castro - Laura Milena Ramos
+2.
+	Posibles condiciones de carrera.
+	-Las posibles condiciones de carrera se dan cuando una o mas serpientes van a intentar coger al mismo tiempo una comida,un boost o una flecha.
+	-Cuando las serpientes intentan usar getBody al mismo tiempo intentando consultar y modificar la coleccion LinkendList<Cell>
+	
+	Uso inadecuado de colecciones, considerando su manejo concurrente.
+	-El contenedor linkendList<Cell> debe ser concurrente.
+
+	Uso innecesario de esperas activas.
+	-Hay una espera activa en el SnakeApp, en la funcion init().
+
+3.	Posibles condiciones de carrera.
+	-Se sincronizan los metodos para modificar la comida,los boost y las flechas.
+	
+	Uso inadecuado de colecciones, considerando su manejo concurrente.
+	-Se remplaza el contendor LinkendList<Cell> por una colleccion concurrente tal como concurrentLinkedDeque<Cell> que hace que los datos sean consistentes al
+	 consultar y modificar el contenedor cuando varias serpientes intentan hacerlo al mismo tiempo.
+
+	Uso innecesario de esperas activas.
+	-Se implementa una condicion y los metodos wait(), notify() y notifyAll().
